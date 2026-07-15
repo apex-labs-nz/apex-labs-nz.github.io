@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Labs — Navigation software built by people who sail</title>
+<meta name="description" content="Apex Labs Limited is a New Zealand software studio building SailNav, a passage-planning and navigation app for cruising sailors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#132B45;
+  --ink-soft:#3C5570;
+  --paper:#F6F8F7;
+  --shoal:#E7F0F1;
+  --contour:#BCD8DF;
+  --magenta:#BE1E7E;
+  --buff:#EDE4CE;
+  --max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  font-weight:400;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  font-size:17px;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{
+  border-bottom:1px solid var(--contour);
+  background:var(--paper);
+  position:sticky;top:0;z-index:10;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.wordmark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.wordmark .apex{font-weight:900;font-size:20px;letter-spacing:.14em}
+.wordmark .labs{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.3em;color:var(--magenta)}
+nav.links{display:flex;gap:28px}
+nav.links a{
+  text-decoration:none;color:var(--ink-soft);
+  font-size:14px;font-weight:500;letter-spacing:.04em;
+}
+nav.links a:hover,nav.links a:focus-visible{color:var(--magenta)}
+a:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:2px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--shoal)}
+.hero svg.chart{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-inner{position:relative;padding:104px 0 120px}
+.coords{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;
+  color:var(--ink-soft);text-transform:uppercase;margin-bottom:22px;
+}
+.coords b{color:var(--magenta);font-weight:500}
+h1{
+  font-weight:800;font-size:clamp(34px,5.4vw,58px);
+  line-height:1.08;letter-spacing:-.015em;max-width:15ch;
+}
+.hero p.lede{
+  margin-top:24px;max-width:52ch;font-size:19px;color:var(--ink-soft);
+}
+.hero .cta{
+  display:inline-block;margin-top:36px;
+  font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.08em;
+  color:var(--paper);background:var(--ink);text-decoration:none;
+  padding:14px 26px;border-radius:3px;
+}
+.hero .cta:hover,.hero .cta:focus-visible{background:var(--magenta)}
+
+/* ---------- section scaffolding ---------- */
+section{padding:88px 0}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--magenta);margin-bottom:14px;
+}
+h2{font-weight:800;font-size:clamp(26px,3.4vw,36px);letter-spacing:-.01em;line-height:1.15}
+.section-lede{margin-top:16px;max-width:58ch;color:var(--ink-soft)}
+
+/* ---------- sailnav ---------- */
+#sailnav .grid{
+  margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--contour);border:1px solid var(--contour);
+}
+.feature{background:var(--paper);padding:30px 28px}
+.feature .f-label{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+  color:var(--ink-soft);text-transform:uppercase;
+}
+.feature h3{font-size:19px;font-weight:700;margin:8px 0 8px}
+.feature p{font-size:15.5px;color:var(--ink-soft)}
+.status-line{
+  margin-top:40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);
+}
+.status-line .dot{
+  width:9px;height:9px;border-radius:50%;background:var(--magenta);flex:none;
+}
+
+/* ---------- about ---------- */
+#about{background:var(--shoal);border-top:1px solid var(--contour);border-bottom:1px solid var(--contour)}
+#about .cols{margin-top:34px;display:grid;grid-template-columns:1.4fr 1fr;gap:56px}
+#about p+p{margin-top:16px}
+.registry{
+  background:var(--paper);border:1px solid var(--contour);padding:26px 26px;
+  font-size:14.5px;align-self:start;
+}
+.registry dt{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-soft);margin-top:16px;
+}
+.registry dt:first-child{margin-top:0}
+.registry dd{margin-top:3px;font-weight:500}
+
+/* ---------- contact ---------- */
+#contact .card{
+  margin-top:36px;border:1px solid var(--contour);display:grid;
+  grid-template-columns:repeat(2,1fr);gap:1px;background:var(--contour);
+}
+.contact-cell{background:var(--paper);padding:30px 28px}
+.contact-cell .c-label{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.contact-cell a{
+  display:inline-block;margin-top:10px;font-size:19px;font-weight:700;
+  color:var(--ink);text-decoration:none;border-bottom:2px solid var(--magenta);
+}
+.contact-cell a:hover,.contact-cell a:focus-visible{color:var(--magenta)}
+.contact-cell p{margin-top:10px;font-size:15px;color:var(--ink-soft)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--contour);padding:36px 0 44px;background:var(--paper)}
+.foot{
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.05em;color:var(--ink-soft);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  nav.links{gap:18px}
+  #sailnav .grid{grid-template-columns:1fr}
+  #about .cols{grid-template-columns:1fr;gap:32px}
+  #contact .card{grid-template-columns:1fr}
+  .hero-inner{padding:72px 0 88px}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top" aria-label="Apex Labs home">
+      <span class="apex">APEX</span><span class="labs">LABS</span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#sailnav">SailNav</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <svg class="chart" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <!-- bathymetric contours -->
+      <g fill="none" stroke="#BCD8DF" stroke-width="1.3">
+        <path d="M-60,470 C160,430 260,480 420,440 C600,395 700,460 900,420 C1050,390 1150,430 1260,405"/>
+        <path d="M-60,520 C180,480 300,540 480,500 C660,460 780,530 960,485 C1090,452 1180,490 1260,470"/>
+        <path d="M-60,415 C140,385 240,420 400,385 C560,350 680,405 860,365 C1010,332 1130,370 1260,345"/>
+        <path d="M-60,355 C120,330 230,360 390,330 C540,302 660,345 830,310 C980,280 1120,312 1260,290"/>
+      </g>
+      <!-- depth labels -->
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8FB4BE">
+        <text x="180" y="348">20</text>
+        <text x="520" y="408">50</text>
+        <text x="880" y="478">100</text>
+      </g>
+      <!-- rhumb line -->
+      <line x1="80" y1="500" x2="1150" y2="120" stroke="#BE1E7E" stroke-width="1.6" stroke-dasharray="10 7"/>
+      <!-- vessel -->
+      <g transform="translate(760,258) rotate(70)">
+        <path d="M0,-11 L7,9 L0,5 L-7,9 Z" fill="#BE1E7E"/>
+      </g>
+      <text x="790" y="243" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#BE1E7E">COG 070°T</text>
+      <!-- graticule ticks -->
+      <g stroke="#BCD8DF" stroke-width="1">
+        <line x1="300" y1="0" x2="300" y2="14"/><line x1="600" y1="0" x2="600" y2="14"/><line x1="900" y1="0" x2="900" y2="14"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-inner">
+      <p class="coords mono">41°15′S 174°01′E · <b>NEW ZEALAND</b></p>
+      <h1>Navigation software built by people who sail.</h1>
+      <p class="lede">Apex Labs is an independent New Zealand software studio. We build tools for Apple platforms that treat the sea — and the sailor — honestly: robust over fragile, conservative over clever, offline-first always.</p>
+      <a class="cta" href="#sailnav">VIEW SAILNAV →</a>
+    </div>
+  </div>
+
+  <!-- ============ SAILNAV ============ -->
+  <section id="sailnav">
+    <div class="wrap">
+      <p class="eyebrow">Flagship · In development</p>
+      <h2>SailNav</h2>
+      <p class="section-lede">A passage-planning and navigation app for cruising sailors, born on a catamaran in the Marlborough Sounds. SailNav plans the passage you'd actually sail — not the one a fragile forecast optimum suggests.</p>
+
+      <div class="grid">
+        <div class="feature">
+          <p class="f-label">Passage planning</p>
+          <h3>Plans you can trust at sea</h3>
+          <p>Weather-routed passage and departure planning built on your boat's real polars, with conservative speed models and honest "no good window" answers when that's the truth.</p>
+        </div>
+        <div class="feature">
+          <p class="f-label">Tides &amp; streams</p>
+          <h3>Tidal gates, done properly</h3>
+          <p>Authoritative tidal stream data for passages where timing is everything — including Cook Strait, Tory Channel, and French Pass — coupled directly to the passage timeline.</p>
+        </div>
+        <div class="feature">
+          <p class="f-label">Live instruments</p>
+          <h3>Your boat's data, everywhere</h3>
+          <p>NMEA 0183 and Signal K integration brings wind, speed, depth, and AIS from your instruments to iPad, iPhone, and Apple TV — at the nav station, in the cockpit, or in the saloon.</p>
+        </div>
+        <div class="feature">
+          <p class="f-label">Offline-first</p>
+          <h3>Built for where there's no signal</h3>
+          <p>Everything essential works without a connection. Forecasts, charts overlays, and planning data are cached aboard; the internet is a convenience, never a dependency.</p>
+        </div>
+      </div>
+
+      <p class="status-line"><span class="dot" aria-hidden="true"></span> IN ACTIVE DEVELOPMENT — COMING TO THE APP STORE FOR iPAD, iPHONE &amp; APPLE TV</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">The studio</p>
+      <h2>About Apex Labs</h2>
+      <div class="cols">
+        <div>
+          <p class="section-lede" style="margin-top:0">Apex Labs Limited is an independent software company registered in New Zealand. We design and build software for iPhone, iPad, and Apple TV, with a focus on marine navigation and tools for the outdoors.</p>
+          <p class="section-lede">Our work is grounded in real use: SailNav's design decisions are made underway, on passage, in the conditions the software is meant to serve. We favour measured data over tuned constants, single sources of truth over duplication, and silence over false precision.</p>
+        </div>
+        <dl class="registry">
+          <dt>Legal entity</dt>
+          <dd>Apex Labs Limited</dd>
+          <dt>Registered in</dt>
+          <dd>New Zealand</dd>
+          <dt>NZBN</dt>
+          <dd>9429 0XX XXX XXX</dd>
+          <dt>Business hours</dt>
+          <dd>Mon–Fri, 9am–5pm NZT</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Contact &amp; support</h2>
+      <div class="card">
+        <div class="contact-cell">
+          <p class="c-label">General enquiries</p>
+          <a href="mailto:ben@apexlabs.co.nz">ben@apexlabs.co.nz</a>
+          <p>Business, press, and partnership enquiries. We reply from New Zealand — please allow for the time zone.</p>
+        </div>
+        <div class="contact-cell">
+          <p class="c-label">Product support</p>
+          <a href="mailto:support@apexlabs.co.nz">support@apexlabs.co.nz</a>
+          <p>Help with SailNav and other Apex Labs software, including beta builds distributed through TestFlight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 APEX LABS LIMITED · NEW ZEALAND</span>
+    <span>APEXLABS.CO.NZ</span>
+  </div>
+</footer>
+
+</body>
+</html>
