@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SailNav — passage planning for cruising sailors | Apex Labs</title>
+<meta name="description" content="SailNav is a passage-planning and navigation app for cruising sailors on iPad, iPhone, and Apple TV, built by Apex Labs in New Zealand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#132B45;--ink-soft:#3C5570;--paper:#F6F8F7;--shoal:#E7F0F1;--contour:#BCD8DF;--magenta:#BE1E7E;--max:820px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Archivo',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--contour);background:var(--paper);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1080px;margin:0 auto;padding:0 24px}
+.wordmark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.wordmark .apex{font-weight:900;font-size:20px;letter-spacing:.14em}
+.wordmark .labs{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.3em;color:var(--magenta)}
+nav.links{display:flex;gap:24px}
+nav.links a{text-decoration:none;color:var(--ink-soft);font-size:14px;font-weight:500;letter-spacing:.04em}
+nav.links a:hover,nav.links a:focus-visible{color:var(--magenta)}
+a:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:2px}
+main{padding:72px 0 88px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta);margin-bottom:14px}
+h1{font-weight:800;font-size:clamp(30px,4.5vw,44px);letter-spacing:-.012em;line-height:1.12}
+.lede{margin-top:18px;font-size:18.5px;color:var(--ink-soft);max-width:60ch}
+h2{font-weight:700;font-size:23px;margin:52px 0 12px;letter-spacing:-.008em}
+h3{font-weight:700;font-size:18px;margin:30px 0 8px}
+p{margin-top:12px;color:var(--ink-soft)}
+p.first{margin-top:0}
+ul{margin:12px 0 0 22px;color:var(--ink-soft)}
+li{margin-top:8px}
+main a{color:var(--ink);border-bottom:2px solid var(--magenta);text-decoration:none}
+main a:hover{color:var(--magenta)}
+.meta{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);margin-top:22px}
+.panel{background:var(--shoal);border:1px solid var(--contour);padding:24px 26px;margin-top:28px}
+footer{border-top:1px solid var(--contour);padding:36px 0 44px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.05em;color:var(--ink-soft);max-width:1080px;margin:0 auto;padding:0 24px}
+.foot a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="wordmark" href="index.html" aria-label="Apex Labs home"><span class="apex">APEX</span><span class="labs">LABS</span></a>
+    <nav class="links" aria-label="Main">
+      <a href="sailnav.html">SailNav</a>
+      <a href="index.html#about">About</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+
+    <p class="eyebrow">SailNav · In development</p>
+    <h1>The passage you'd actually sail.</h1>
+    <p class="lede">SailNav is a navigation and passage-planning app for cruising sailors, built for Apple platforms by people who cruise. It was born at a nav station in the Marlborough Sounds, and every design decision in it has been tested where it matters — underway.</p>
+
+    <h2>A different planning philosophy</h2>
+    <p class="first">Most weather-routing software optimises aggressively: it will happily send a short-handed cruising boat far off the direct line to chase a forecast advantage that may not survive the next model run. SailNav is built on the opposite conviction. It plans conservatively, prefers robust routes over fragile optima, and when the honest answer is "there is no good departure window this week" — it says so, rather than dressing up a marginal one.</p>
+    <p>The same honesty runs through the whole app. Forecast data is sampled at the resolution the weather model actually provides, not interpolated into false confidence. Comfort predictions are given as meaningful bands, not decimal points. If the data can't support a claim, SailNav doesn't make it.</p>
+
+    <h2>What it does</h2>
+    <h3>Passage planning</h3>
+    <p class="first">Route and passage planning built on your boat's real performance. You describe how your boat actually sails — a handful of honest speed points, your motoring speed, when you'd motor-sail — and SailNav plans with a three-regime model (sailing, motor-sailing, motoring) that reflects how cruisers really make passages. A timeline scrubber lets you walk through the passage hour by hour with the forecast evolving around you.</p>
+    <h3>Departure planning</h3>
+    <p class="first">Compare departure times across the days ahead, ranked by what matters to a cruising crew: staying inside your wind and sea-state limits first, comfort and passage time after that.</p>
+    <h3>Tides and tidal streams</h3>
+    <p class="first">For waters where timing is everything — Cook Strait, Tory Channel, French Pass — SailNav couples authoritative tidal stream data directly into the passage timeline, so the plan respects the gate, not the other way round.</p>
+    <h3>Live instruments and AIS</h3>
+    <p class="first">SailNav connects to your boat's instruments over NMEA 0183 and Signal K, bringing wind, speed, depth, heading, and AIS targets to the iPad at the nav station, the iPhone in the cockpit, and the Apple TV in the saloon. AIS traffic from your VHF receiver and internet sources is merged into a single honest picture, with closest-point-of-approach calculations for anything that matters.</p>
+    <h3>Sea state and comfort</h3>
+    <p class="first">Using the iPad's own motion sensors, SailNav measures how the boat is actually moving and folds real comfort data into passage planning — because the difference between a good passage and a bad one is usually not speed.</p>
+    <h3>Offline-first</h3>
+    <p class="first">Everything essential works with no connection. Forecasts and planning data are cached aboard; the internet is a convenience, never a dependency.</p>
+
+    <h2>Platforms</h2>
+    <p class="first">SailNav is being built natively for <b>iPad</b> (the primary nav-station experience), <b>iPhone</b>, and <b>Apple TV</b> (a glanceable saloon display fed directly from your instruments).</p>
+
+    <div class="panel">
+      <p class="first" style="color:var(--ink)"><b>Status:</b> SailNav is in active development and testing aboard in New Zealand. It will come to the App Store when it's ready — and beta places via TestFlight will be offered before that. If you'd like to hear when, email <a href="mailto:ben@apexlabs.co.nz">ben@apexlabs.co.nz</a> with the subject "SailNav".</p>
+    </div>
+
+    <p class="meta">IMPORTANT · SailNav is a planning and situational-awareness aid. It is not a substitute for official nautical charts, official notices to mariners, or the judgement of a vessel's skipper, who remains responsible for safe navigation at all times.</p>
+
+  </div>
+</main>
+<footer>
+  <div class="foot">
+    <span>© 2026 APEX LABS LIMITED · NEW ZEALAND</span>
+    <span><a href="sailnav.html">SAILNAV</a> · <a href="support.html">SUPPORT</a> · <a href="privacy.html">PRIVACY</a></span>
+  </div>
+</footer>
+</body>
+</html>
